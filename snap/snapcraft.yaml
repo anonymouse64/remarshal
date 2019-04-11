@@ -1,0 +1,44 @@
+name: remarshal
+base: core18
+version: "0.10.0"
+summary: Convert between TOML, YAML, and JSON
+description: |
+  Convert between TOML, YAML, and JSON. When installed provides the command 
+  line commands toml2yaml, toml2json, yaml2toml, yaml2json, json2toml, and
+  json2yaml for format conversion as well as toml2toml, yaml2yaml, and 
+  json2json for reformatting and error detection. Remarshal currently supports
+  TOML 0.4.0.
+
+grade: stable
+confinement: strict
+
+plugs:
+  home: {}
+  removable-media: {}
+
+apps:
+  remarshal:
+    command: bin/remarshal
+  json2json:
+    command: bin/json2json
+  json2toml:
+    command: bin/json2toml
+  json2yaml:
+    command: bin/json2yaml
+  toml2json:
+    command: bin/toml2json
+  toml2toml:
+    command: bin/toml2toml
+  toml2yaml:
+    command: bin/toml2yaml
+  yaml2json:
+    command: bin/yaml2json
+  yaml2toml:
+    command: bin/yaml2toml
+  yaml2yaml:
+    command: bin/yaml2yaml
+
+parts:
+  remarshal:
+    plugin: python
+    source: .
